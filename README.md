@@ -9,3 +9,6 @@
 `npm install`
 
 `npm run http`
+
+# Live demo:
+https://agea.github.io/js-course/
