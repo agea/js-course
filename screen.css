@@ -1,0 +1,24 @@
+body {
+    font-family: sans-serif;
+}
+
+table {
+    margin: auto;
+    width: 50vh;
+    height: 50vh;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+td {
+    width: 33%;
+    line-height: 0;
+    font-size: 5vh;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+td.clicked {
+    background-color: #ddd;
+}
