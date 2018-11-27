@@ -1,6 +1,7 @@
 (function () {
 
     var symbol;
+    var count = 0;
 
     document.addEventListener('DOMContentLoaded', function () {
         init();
@@ -8,6 +9,7 @@
 
     function init() {
         symbol = 'X';
+        count = 0;
         var cells = document.getElementsByTagName('td');
         for (var i = 0; i < cells.length; i++) {
             cells[i].classList.remove('clicked');
@@ -18,6 +20,7 @@
     }
 
     function click() {
+        count++;
         this.innerText = symbol;
         this.classList.add('clicked');
         this.removeEventListener('click', click);
@@ -29,6 +32,9 @@
             for (var i = 0; i < cells.length; i++) {
                 cells[i].removeEventListener('click', click);
             }
+        } else if (count == 9) {
+            document.getElementById('victory').innerHTML = '<h1>Nobody wins :( <button id="play-again">Play again</button></h1>';
+            document.getElementById('play-again').addEventListener('click', init);
         }
         symbol = symbol == 'X' ? 'O' : 'X';
     }
