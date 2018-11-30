@@ -13,9 +13,17 @@
 
         loadToken().then(loadCommits);
 
-        document.getElementById('next').addEventListener('click', function () {
-            loadCommits(nextUrl);
+        window.addEventListener('scroll', function () {
+            if (nextUrl && (window.scrollY + window.innerHeight) >= document.body.offsetHeight) {
+                loadCommits(nextUrl);
+                document.getElementById('scrollTop').style.display = 'block';
+            }
+        })
+
+        document.getElementById('scrollTop').addEventListener('click', function () {
+            window.scrollTo(0, 0);
         });
+
     }
 
     function loadToken() {
@@ -35,9 +43,11 @@
         return fetch(url, { headers: headers })
             .then(function (response) {
                 var link = response.headers.get('Link');
-                if (link.indexOf('rel="next"') != -1) {
+                if (link && link.indexOf('rel="next"') != -1) {
                     var url = link.split(';')[0];
                     nextUrl = url.substring(1, url.length - 1);
+                } else {
+                    nextUrl = null;
                 }
                 console.log(link);
                 return response.json();

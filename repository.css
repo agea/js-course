@@ -18,3 +18,12 @@ body {
 .sha {
     font-family: monospace;
 }
+
+#scrollTop {
+    display: none;
+    position: fixed;
+    right: 1em;
+    bottom: 1em;
+    padding: 1em;
+    cursor: pointer;
+}
