@@ -1,3 +1,20 @@
 body {
     font-family: sans-serif;
 }
+
+#loading {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+    line-height: 100vh;
+    font-size: 10vh;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.sha {
+    font-family: monospace;
+}
